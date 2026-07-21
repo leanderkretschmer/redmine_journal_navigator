@@ -7,12 +7,13 @@ module RedmineJournalNavigator
       return '' unless relevant?(controller)
 
       journals = controller.instance_variable_get(:@journals)
-      return '' if journals.blank?
+      note_count = journals.to_a.count { |journal| journal.notes.present? }
+      return '' if note_count.zero?
 
       controller.send(
         :render_to_string,
         partial: 'journal_navigator/sidebar',
-        locals: { note_count: journals.size }
+        locals: { note_count: note_count }
       )
     end
 

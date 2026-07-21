@@ -6,7 +6,8 @@
   if (!historyEl) return;
 
   function collectNotes() {
-    var nodes = historyEl.querySelectorAll('.note[id^="note-"]');
+    // only journals that actually have a comment (.has-notes), not plain property changes
+    var nodes = historyEl.querySelectorAll('.journal.has-notes .note[id^="note-"]');
     return Array.prototype.slice.call(nodes).sort(function (a, b) {
       return parseInt(a.id.slice(5), 10) - parseInt(b.id.slice(5), 10);
     });
