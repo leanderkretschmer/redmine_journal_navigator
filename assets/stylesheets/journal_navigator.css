@@ -1,0 +1,49 @@
+/* redmine_journal_navigator */
+
+.journal-navigator {
+  margin-bottom: 1.5em;
+}
+
+.journal-navigator-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.journal-navigator-btn {
+  width: 28px;
+  height: 28px;
+  line-height: 26px;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.journal-navigator-btn:hover:not(:disabled) {
+  background: #f0f0f0;
+  border-color: #999;
+}
+
+.journal-navigator-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.journal-navigator-position {
+  min-width: 4.5em;
+  text-align: center;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.journal-navigator-slider {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
