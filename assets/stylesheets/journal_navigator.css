@@ -8,20 +8,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 6px;
 }
 
 .journal-navigator-btn {
-  width: 28px;
-  height: 28px;
-  line-height: 26px;
+  width: 26px;
+  height: 26px;
+  line-height: 24px;
   padding: 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   background: #fff;
   color: #333;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
+  flex: 0 0 auto;
 }
 
 .journal-navigator-btn:hover:not(:disabled) {
@@ -35,9 +36,9 @@
 }
 
 .journal-navigator-position {
-  min-width: 4.5em;
+  min-width: 3.5em;
   text-align: center;
-  font-size: 0.9em;
+  font-size: 0.85em;
   color: #555;
 }
 

@@ -1,10 +1,14 @@
 <div id="journal-navigator" class="journal-navigator">
   <div class="journal-navigator-controls">
+    <button type="button" id="journal-nav-first" class="journal-navigator-btn"
+            title="<%= l(:label_journal_navigator_first) %>" aria-label="<%= l(:label_journal_navigator_first) %>">&#8810;</button>
     <button type="button" id="journal-nav-prev" class="journal-navigator-btn"
             title="<%= l(:label_journal_navigator_prev) %>" aria-label="<%= l(:label_journal_navigator_prev) %>">&#8249;</button>
     <span id="journal-nav-position" class="journal-navigator-position">1 / <%= note_count %></span>
     <button type="button" id="journal-nav-next" class="journal-navigator-btn"
             title="<%= l(:label_journal_navigator_next) %>" aria-label="<%= l(:label_journal_navigator_next) %>">&#8250;</button>
+    <button type="button" id="journal-nav-last" class="journal-navigator-btn"
+            title="<%= l(:label_journal_navigator_last) %>" aria-label="<%= l(:label_journal_navigator_last) %>">&#8811;</button>
   </div>
   <input type="range" id="journal-nav-slider" class="journal-navigator-slider"
          min="0" max="<%= [note_count - 1, 0].max %>" value="0" step="1"

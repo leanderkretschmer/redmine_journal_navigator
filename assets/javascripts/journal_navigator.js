@@ -19,8 +19,10 @@
     return;
   }
 
+  var firstBtn = document.getElementById('journal-nav-first');
   var prevBtn = document.getElementById('journal-nav-prev');
   var nextBtn = document.getElementById('journal-nav-next');
+  var lastBtn = document.getElementById('journal-nav-last');
   var slider = document.getElementById('journal-nav-slider');
   var position = document.getElementById('journal-nav-position');
 
@@ -33,8 +35,10 @@
   function updateUI() {
     position.textContent = (current + 1) + ' / ' + notes.length;
     slider.value = current;
+    firstBtn.disabled = current === 0;
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === notes.length - 1;
+    lastBtn.disabled = current === notes.length - 1;
   }
 
   function goTo(index, instant) {
@@ -49,8 +53,10 @@
     suppressTimeout = setTimeout(function () { suppressObserver = false; }, 500);
   }
 
+  firstBtn.addEventListener('click', function () { goTo(0); });
   prevBtn.addEventListener('click', function () { goTo(current - 1); });
   nextBtn.addEventListener('click', function () { goTo(current + 1); });
+  lastBtn.addEventListener('click', function () { goTo(notes.length - 1); });
 
   // 'input' fires continuously while dragging -> fast, non-smooth scrolling while sliding
   slider.addEventListener('input', function () {

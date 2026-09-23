@@ -1,4 +1,6 @@
 de:
+  label_journal_navigator_first: "Erster Kommentar"
   label_journal_navigator_prev: "Vorheriger Kommentar"
   label_journal_navigator_next: "Nächster Kommentar"
+  label_journal_navigator_last: "Letzter Kommentar"
   label_journal_navigator_slider: "Kommentar-Position"
