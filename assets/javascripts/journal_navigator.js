@@ -46,6 +46,10 @@
     current = index;
     updateUI();
 
+    if (window.RedmineJournalCollapse) {
+      window.RedmineJournalCollapse.expandIfCollapsed(notes[current].querySelector('.wiki.journal-note'));
+    }
+
     suppressObserver = true;
     notes[current].scrollIntoView({ behavior: instant ? 'auto' : 'smooth', block: 'start' });
 

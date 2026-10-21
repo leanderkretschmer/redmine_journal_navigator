@@ -1,0 +1,117 @@
+<div id="jn-account-settings" class="jn-account-settings"
+     data-expand-label="<%= l(:button_jn_expand) %>"
+     data-collapse-label="<%= l(:button_jn_collapse) %>"
+     data-filter-placeholder="<%= l(:label_jn_file_filter_placeholder) %>">
+
+  <div class="jn-settings-block" data-jn-block="collapse">
+    <h4 class="jn-settings-title">
+      <label>
+        <input type="checkbox" id="jn-collapse-enabled" <%= 'checked' if prefs[:collapse_enabled] %>>
+        <%= l(:label_jn_collapse_title) %>
+      </label>
+    </h4>
+    <p class="jn-settings-hint"><%= l(:text_jn_collapse_hint) %></p>
+
+    <p class="jn-settings-field">
+      <label for="jn-collapse-lines">
+        <%= l(:label_jn_collapse_lines) %>: <strong id="jn-collapse-lines-value"><%= prefs[:collapse_lines] %></strong>
+      </label>
+      <input type="range" id="jn-collapse-lines" class="jn-settings-slider"
+             min="2" max="20" step="1" value="<%= prefs[:collapse_lines] %>">
+    </p>
+
+    <div class="jn-settings-subblock" data-jn-block="collapse-autohide">
+      <p class="jn-settings-field">
+        <label>
+          <input type="checkbox" id="jn-collapse-autohide-enabled" <%= 'checked' if prefs[:collapse_autohide_enabled] %>>
+          <%= l(:label_jn_collapse_autohide_title) %>
+        </label>
+      </p>
+      <p class="jn-settings-hint"><%= l(:text_jn_collapse_autohide_hint) %></p>
+      <p class="jn-settings-field">
+        <label for="jn-collapse-autohide-distance">
+          <%= l(:label_jn_collapse_autohide_distance) %>: <strong id="jn-collapse-autohide-distance-value"><%= prefs[:collapse_autohide_distance] %></strong>
+        </label>
+        <input type="range" id="jn-collapse-autohide-distance" class="jn-settings-slider"
+               min="2" max="8" step="1" value="<%= prefs[:collapse_autohide_distance] %>">
+      </p>
+    </div>
+
+    <div class="jn-preview">
+      <p class="jn-preview-label"><%= l(:label_jn_preview) %></p>
+      <div class="jn-preview-frame" id="jn-preview-history">
+        <div class="journal has-notes">
+          <div class="journal-content">
+            <div id="jn-preview-note" class="wiki journal-note">
+              <p><%= l(:text_jn_example_comment_p1) %></p>
+              <p><%= l(:text_jn_example_comment_p2) %></p>
+              <p><%= l(:text_jn_example_comment_p3) %></p>
+              <ul>
+                <li><%= l(:text_jn_example_comment_li1) %></li>
+                <li><%= l(:text_jn_example_comment_li2) %></li>
+                <li><%= l(:text_jn_example_comment_li3) %></li>
+              </ul>
+              <p><%= l(:text_jn_example_comment_p4) %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="jn-settings-block" data-jn-block="filelist">
+    <h4 class="jn-settings-title">
+      <label>
+        <input type="checkbox" id="jn-filelist-enabled" <%= 'checked' if prefs[:filelist_enabled] %>>
+        <%= l(:label_jn_filelist_title) %>
+      </label>
+    </h4>
+    <p class="jn-settings-hint"><%= l(:text_jn_filelist_hint) %></p>
+
+    <div class="jn-settings-subblock" data-jn-block="filelist-navigator">
+      <p class="jn-settings-field">
+        <label>
+          <input type="checkbox" id="jn-filelist-navigator-enabled" <%= 'checked' if prefs[:filelist_navigator_enabled] %>>
+          <%= l(:label_jn_filelist_navigator_title) %>
+        </label>
+      </p>
+      <p class="jn-settings-hint"><%= l(:text_jn_filelist_navigator_hint) %></p>
+    </div>
+
+    <div class="jn-preview">
+      <p class="jn-preview-label"><%= l(:label_jn_preview) %></p>
+      <div class="jn-preview-frame">
+        <div id="jn-preview-attachments" class="attachments"
+             data-jn-summary="<%= l(:label_jn_attachment_summary, count: 8, size: '9,5 MB') %>">
+          <table>
+            <%
+              example_attachments = [
+                ['anforderungen.pdf', '842 KB', 'Anna Beispiel'],
+                ['architektur-diagramm.png', '1,3 MB', 'Max Mustermann'],
+                ['protokoll-kickoff.docx', '58 KB', 'Anna Beispiel'],
+                ['export-logs.zip', '4,1 MB', 'Max Mustermann'],
+                ['screenshot-bug.png', '210 KB', 'Anna Beispiel'],
+                ['testplan.xlsx', '96 KB', 'Max Mustermann'],
+                ['vertrag-entwurf.pdf', '312 KB', 'Anna Beispiel'],
+                ['mockup-v2.fig', '2,0 MB', 'Max Mustermann']
+              ]
+            %>
+            <% example_attachments.each do |name, size, author| %>
+              <tr>
+                <td>
+                  <span class="icon icon-attachment"><%= name %></span>
+                  <span class="size">(<%= size %>)</span>
+                </td>
+                <td></td>
+                <td><span class="author"><%= author %></span></td>
+                <td></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p id="jn-save-status" class="jn-save-status" aria-live="polite"></p>
+</div>

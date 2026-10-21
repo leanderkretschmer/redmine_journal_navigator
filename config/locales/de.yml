@@ -4,3 +4,33 @@ de:
   label_journal_navigator_next: "Nächster Kommentar"
   label_journal_navigator_last: "Letzter Kommentar"
   label_journal_navigator_slider: "Kommentar-Position"
+
+  label_jn_preview: "Vorschau"
+
+  label_jn_collapse_title: "Lange Kommentare einklappen"
+  text_jn_collapse_hint: "Kommentare, die deutlich länger sind als die eingestellte Zeilenzahl, werden auf die ersten Zeilen zusammengefasst. Ein Klick auf den Kommentar oder den Pfeil klappt ihn wieder auf."
+  label_jn_collapse_lines: "Sichtbare Zeilen"
+  label_jn_collapse_autohide_title: "Automatisch wieder einklappen"
+  text_jn_collapse_autohide_hint: "Sobald du dich beim Scrollen um die eingestellte Anzahl Kommentare von einem ausgeklappten Kommentar entfernst, klappt er automatisch wieder zu."
+  label_jn_collapse_autohide_distance: "Abstand in Kommentaren"
+
+  label_jn_filelist_title: "Dateiliste einklappen"
+  text_jn_filelist_hint: "Die Dateiliste eines Tickets wird zu einer Zeile mit Anzahl und Gesamtgröße zusammengefasst. Ein Klick darauf blendet die Dateien wieder ein."
+  label_jn_filelist_navigator_title: "Datei-Navigator"
+  text_jn_filelist_navigator_hint: "Zeigt die Dateien beim Ausklappen übersichtlicher an und blendet bei vielen Dateien ein Suchfeld zum Filtern ein, statt der normalen Redmine-Liste."
+
+  button_jn_expand: "Ausklappen"
+  button_jn_collapse: "Einklappen"
+  label_jn_file_filter_placeholder: "Dateien durchsuchen…"
+
+  label_jn_attachment_summary:
+    one: "%{count} Datei · %{size} insgesamt"
+    other: "%{count} Dateien · %{size} insgesamt"
+
+  text_jn_example_comment_p1: "Ich habe den Importer noch einmal gegen die aktuellen Testdaten laufen lassen und dabei ein paar Dinge gefunden, die wir vor dem nächsten Release klären sollten. Insgesamt läuft der Import stabil, aber es gibt Randfälle bei fehlerhaften Datumsformaten."
+  text_jn_example_comment_p2: "Bei etwa 3% der Datensätze schlägt die Validierung fehl, weil das Datumsfeld leer ist statt eines gültigen Werts. Aktuell bricht der komplette Batch dann ab, anstatt nur den einzelnen Datensatz zu überspringen und den Rest weiter zu verarbeiten."
+  text_jn_example_comment_p3: "Ich schlage vor, dass wir die Verarbeitung so anpassen, dass fehlerhafte Zeilen in eine separate Fehlerliste geschrieben werden, der Rest des Imports aber trotzdem durchläuft. Das würde auch zu den Anforderungen aus dem Kickoff-Protokoll passen."
+  text_jn_example_comment_li1: "Validierung pro Zeile statt pro Batch"
+  text_jn_example_comment_li2: "Fehlerhafte Zeilen in eine Fehlerliste schreiben"
+  text_jn_example_comment_li3: "Zusammenfassung am Ende des Imports anzeigen"
+  text_jn_example_comment_p4: "Wenn das so passt, kann ich das noch diese Woche umsetzen und einen Testlauf mit den aktuellen Exporten machen, bevor wir es auf die Staging-Umgebung bringen."

@@ -1,0 +1,83 @@
+/* redmine_journal_navigator — "Mein Konto" settings */
+
+.jn-account-settings {
+  margin-top: 1em;
+}
+
+.jn-settings-block {
+  margin-bottom: 1.5em;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fafafa;
+}
+
+.jn-settings-title {
+  margin: 0 0 4px;
+  font-size: 1em;
+}
+
+.jn-settings-title label {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.jn-settings-hint {
+  margin: 0 0 8px;
+  color: #666;
+  font-size: 0.85em;
+}
+
+.jn-settings-field {
+  margin: 6px 0;
+}
+
+.jn-settings-field label {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.9em;
+}
+
+.jn-settings-slider {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+}
+
+.jn-settings-subblock {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-left: 3px solid #ddd;
+  background: #fff;
+}
+
+.jn-settings-subblock label {
+  cursor: pointer;
+}
+
+.jn-preview {
+  margin-top: 10px;
+}
+
+.jn-preview-label {
+  margin: 0 0 4px;
+  color: #666;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.jn-preview-frame {
+  max-width: 420px;
+  padding: 10px 12px;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.jn-save-status {
+  min-height: 1.2em;
+  color: #2a8a2a;
+  font-size: 0.9em;
+}

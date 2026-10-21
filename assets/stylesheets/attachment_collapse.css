@@ -1,0 +1,47 @@
+/* redmine_journal_navigator — file list collapsing & navigator */
+
+.jn-file-summary {
+  display: inline-flex;
+  align-items: center;
+  margin: 4px 0;
+  padding: 4px 10px 4px 22px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  color: #333;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.jn-file-summary:hover {
+  background-color: #eee;
+}
+
+.jn-file-filter {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 6px 0;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.attachments.jn-file-navigator-mode table {
+  border-collapse: separate;
+  border-spacing: 0 4px;
+  width: 100%;
+}
+
+.attachments.jn-file-navigator-mode table tr {
+  background: #f9f9f9;
+}
+
+.attachments.jn-file-navigator-mode table tr:hover {
+  background: #eef4fb;
+}
+
+.attachments.jn-file-navigator-mode table td {
+  padding: 6px 8px;
+}

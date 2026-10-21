@@ -4,3 +4,33 @@ en:
   label_journal_navigator_next: "Next comment"
   label_journal_navigator_last: "Last comment"
   label_journal_navigator_slider: "Comment position"
+
+  label_jn_preview: "Preview"
+
+  label_jn_collapse_title: "Collapse long comments"
+  text_jn_collapse_hint: "Comments that are noticeably longer than the configured number of lines are collapsed to their first lines. Clicking the comment or the arrow expands it again."
+  label_jn_collapse_lines: "Visible lines"
+  label_jn_collapse_autohide_title: "Automatically collapse again"
+  text_jn_collapse_autohide_hint: "Once you scroll away from an expanded comment by the configured number of comments, it collapses again automatically."
+  label_jn_collapse_autohide_distance: "Distance in comments"
+
+  label_jn_filelist_title: "Collapse file list"
+  text_jn_filelist_hint: "The attachment list of a ticket is collapsed into a single line showing the count and total size. Clicking it shows the files again."
+  label_jn_filelist_navigator_title: "File navigator"
+  text_jn_filelist_navigator_hint: "Shows the files more clearly when expanded and adds a search box to filter them when there are many, instead of the plain Redmine list."
+
+  button_jn_expand: "Expand"
+  button_jn_collapse: "Collapse"
+  label_jn_file_filter_placeholder: "Search files…"
+
+  label_jn_attachment_summary:
+    one: "%{count} file · %{size} total"
+    other: "%{count} files · %{size} total"
+
+  text_jn_example_comment_p1: "I ran the importer against the current test data again and found a few things we should clarify before the next release. Overall the import is stable, but there are edge cases with malformed date values."
+  text_jn_example_comment_p2: "About 3% of the records fail validation because the date field is empty instead of a valid value. Right now the whole batch aborts instead of just skipping the single record and continuing with the rest."
+  text_jn_example_comment_p3: "I'd suggest we change the processing so that invalid rows are written to a separate error list while the rest of the import still goes through. That would also match the requirements from the kickoff notes."
+  text_jn_example_comment_li1: "Validate per row instead of per batch"
+  text_jn_example_comment_li2: "Write invalid rows to an error list"
+  text_jn_example_comment_li3: "Show a summary at the end of the import"
+  text_jn_example_comment_p4: "If that sounds fine, I can implement it this week and run a test pass against the current exports before we push it to staging."
