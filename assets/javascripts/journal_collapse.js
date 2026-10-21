@@ -1,7 +1,12 @@
 (function () {
   // Extra lines of tolerance: a comment that only slightly exceeds the configured
   // preview length is left alone instead of being collapsed for little visual gain.
-  var MARGIN_LINES = 4;
+  // Scales with the configured preview length (~30%, at least 2 lines) rather than
+  // a flat value, so a small preview setting doesn't end up with a huge relative
+  // tolerance that makes the feature feel like it does nothing.
+  function marginLinesFor(previewLines) {
+    return Math.max(2, Math.round(previewLines * 0.3));
+  }
 
   function lineHeightOf(el) {
     var cs = window.getComputedStyle(el);
@@ -66,7 +71,7 @@
 
     var lh = lineHeightOf(note);
     var collapsedHeight = opts.previewLines * lh;
-    var marginHeight = MARGIN_LINES * lh;
+    var marginHeight = marginLinesFor(opts.previewLines) * lh;
 
     if (note.scrollHeight <= collapsedHeight + marginHeight) return;
 
