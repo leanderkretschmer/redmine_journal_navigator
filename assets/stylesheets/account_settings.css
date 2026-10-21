@@ -1,66 +1,94 @@
 /* redmine_journal_navigator — "Mein Konto" settings */
 
-.jn-account-settings {
+/* The surrounding <fieldset class="box tabular"> floats every <label> 180px to
+   the left and indents every <p> to match (two-column form layout). That wrecks
+   our own layout *and* the rendered example comment/file list, which legitimately
+   use <p> tags. Everything below is scoped under the #jn-account-settings id so
+   it always wins over those ".tabular label" / ".tabular p" rules on specificity,
+   regardless of stylesheet load order. */
+
+#jn-account-settings {
   margin-top: 1em;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.jn-settings-block {
+#jn-account-settings label {
+  float: none;
+  margin-left: 0;
+  width: auto;
+  text-align: left;
+}
+
+#jn-account-settings p {
+  padding-left: 0;
+  min-height: 0;
+  clear: none;
+}
+
+#jn-account-settings .jn-settings-block {
   margin-bottom: 1.5em;
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background: #fafafa;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.jn-settings-title {
+#jn-account-settings .jn-settings-title {
   margin: 0 0 4px;
   font-size: 1em;
 }
 
-.jn-settings-title label {
+#jn-account-settings .jn-settings-title label {
   font-weight: bold;
   cursor: pointer;
 }
 
-.jn-settings-hint {
+#jn-account-settings .jn-settings-hint {
   margin: 0 0 8px;
   color: #666;
   font-size: 0.85em;
 }
 
-.jn-settings-field {
+#jn-account-settings .jn-settings-field {
   margin: 6px 0;
 }
 
-.jn-settings-field label {
+#jn-account-settings .jn-settings-field label {
   display: block;
   margin-bottom: 2px;
+  font-weight: normal;
   font-size: 0.9em;
 }
 
-.jn-settings-slider {
+#jn-account-settings .jn-settings-slider {
   display: block;
   width: 100%;
   max-width: 320px;
   box-sizing: border-box;
 }
 
-.jn-settings-subblock {
+#jn-account-settings .jn-settings-subblock {
   margin: 8px 0 0;
   padding: 8px 10px;
   border-left: 3px solid #ddd;
   background: #fff;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.jn-settings-subblock label {
+#jn-account-settings .jn-settings-subblock label {
+  font-weight: normal;
   cursor: pointer;
 }
 
-.jn-preview {
+#jn-account-settings .jn-preview {
   margin-top: 10px;
 }
 
-.jn-preview-label {
+#jn-account-settings .jn-preview-label {
   margin: 0 0 4px;
   color: #666;
   font-size: 0.8em;
@@ -68,15 +96,21 @@
   letter-spacing: 0.03em;
 }
 
-.jn-preview-frame {
-  max-width: 420px;
+#jn-account-settings .jn-preview-frame {
+  max-width: 100%;
   padding: 10px 12px;
   border: 1px dashed #ccc;
   border-radius: 4px;
   background: #fff;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
-.jn-save-status {
+#jn-account-settings .jn-preview-frame table {
+  width: 100%;
+}
+
+#jn-account-settings .jn-save-status {
   min-height: 1.2em;
   color: #2a8a2a;
   font-size: 0.9em;

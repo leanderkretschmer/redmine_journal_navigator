@@ -41,6 +41,9 @@
       <p class="jn-preview-label"><%= l(:label_jn_preview) %></p>
       <div class="jn-preview-frame" id="jn-preview-history">
         <div class="journal has-notes">
+          <h4 class="journal-header">
+            <span class="journal-info"><strong>Max Mustermann</strong> &middot; <%= format_time(Time.now - 2.hours) %></span>
+          </h4>
           <div class="journal-content">
             <div id="jn-preview-note" class="wiki journal-note">
               <p><%= l(:text_jn_example_comment_p1) %></p>
