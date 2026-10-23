@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
     autohideDistance: document.getElementById('jn-collapse-autohide-distance'),
     autohideDistanceValue: document.getElementById('jn-collapse-autohide-distance-value'),
     filelistEnabled: document.getElementById('jn-filelist-enabled'),
-    navigatorEnabled: document.getElementById('jn-filelist-navigator-enabled')
+    navigatorEnabled: document.getElementById('jn-filelist-navigator-enabled'),
+    commentFilelistEnabled: document.getElementById('jn-comment-filelist-enabled')
   };
 
   var previewHistory = document.getElementById('jn-preview-history');
@@ -23,6 +24,13 @@ document.addEventListener('DOMContentLoaded', function () {
     collapse: root.dataset.collapseLabel
   };
   var filterPlaceholder = root.dataset.filterPlaceholder;
+  var fileI18n = {
+    pdfPagesOne: root.dataset.pdfPagesOne,
+    pdfPagesOther: root.dataset.pdfPagesOther,
+    pdfGroupFallback: root.dataset.pdfGroupFallback,
+    commentFilesOne: root.dataset.commentFilesOne,
+    commentFilesOther: root.dataset.commentFilesOther
+  };
 
   function renderPreview() {
     fields.collapseLinesValue.textContent = fields.collapseLines.value;
@@ -39,10 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (window.RedmineAttachmentCollapse && previewAttachments) {
-      window.RedmineAttachmentCollapse.apply(previewAttachments.parentNode, {
+      window.RedmineAttachmentCollapse.apply(root, {
         enabled: fields.filelistEnabled.checked,
         navigatorEnabled: fields.navigatorEnabled.checked,
-        filterPlaceholder: filterPlaceholder
+        commentFilelistEnabled: fields.commentFilelistEnabled.checked,
+        filterPlaceholder: filterPlaceholder,
+        i18n: fileI18n
       });
     }
   }
@@ -60,7 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
       'collapse_autohide_enabled=' + (fields.autohideEnabled.checked ? '1' : '0'),
       'collapse_autohide_distance=' + encodeURIComponent(fields.autohideDistance.value),
       'filelist_enabled=' + (fields.filelistEnabled.checked ? '1' : '0'),
-      'filelist_navigator_enabled=' + (fields.navigatorEnabled.checked ? '1' : '0')
+      'filelist_navigator_enabled=' + (fields.navigatorEnabled.checked ? '1' : '0'),
+      'comment_filelist_enabled=' + (fields.commentFilelistEnabled.checked ? '1' : '0')
     ].join('&');
 
     fetch('/journal_navigator/preferences', {

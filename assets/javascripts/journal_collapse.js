@@ -8,6 +8,45 @@
     return Math.max(2, Math.round(previewLines * 0.3));
   }
 
+  // Finds the actual background color the fade should blend into, so it
+  // still looks right on journals that redmine_alternating_journals (or any
+  // other plugin) tints with a non-white background, instead of always
+  // fading to a hardcoded white that leaves a visible seam on those.
+  function ambientBackgroundColor(el) {
+    var node = el;
+    while (node && node !== document.body) {
+      var bg = window.getComputedStyle(node).backgroundColor;
+      var m = /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([\d.]+)\s*)?\)/.exec(bg);
+      if (m && (m[4] === undefined || parseFloat(m[4]) > 0)) {
+        return { r: m[1], g: m[2], b: m[3], a: m[4] === undefined ? 1 : parseFloat(m[4]) };
+      }
+      node = node.parentElement;
+    }
+    return { r: 255, g: 255, b: 255, a: 0.95 };
+  }
+
+  function fadeGradientFor(el) {
+    var c = ambientBackgroundColor(el);
+    var transparentStop = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', 0)';
+    var solidStop = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
+    return 'linear-gradient(to bottom, ' + transparentStop + ', ' + solidStop + ')';
+  }
+
+  // This script runs synchronously while the page is still being parsed, so
+  // a plain setTimeout(fn, 0) called from here fires *before* DOMContentLoaded
+  // -- too early to see classes/styles other plugins (e.g.
+  // redmine_alternating_journals) apply from their own DOMContentLoaded
+  // handler. Wait for that event first (if it hasn't fired yet), then defer
+  // one more tick so handlers registered after ours have also run.
+  function whenPageSettled(fn) {
+    function runSoon() { setTimeout(fn, 0); }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', runSoon, { once: true });
+    } else {
+      runSoon();
+    }
+  }
+
   function lineHeightOf(el) {
     var cs = window.getComputedStyle(el);
     var lh = parseFloat(cs.lineHeight);
@@ -77,6 +116,13 @@
 
     var fade = document.createElement('div');
     fade.className = 'jn-collapse-fade';
+    fade.style.background = fadeGradientFor(note.parentNode);
+    // Plugins like redmine_alternating_journals apply their background color
+    // from their own DOMContentLoaded handler, which runs after this script
+    // (a plain synchronous <script> near the end of body). Re-sample once
+    // more shortly after so the fade still picks up that color once it's
+    // actually there, without delaying the collapse itself.
+    whenPageSettled(function () { fade.style.background = fadeGradientFor(note.parentNode); });
 
     var toggle = document.createElement('button');
     toggle.type = 'button';

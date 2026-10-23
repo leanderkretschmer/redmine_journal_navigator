@@ -1,7 +1,12 @@
 <div id="jn-account-settings" class="jn-account-settings"
      data-expand-label="<%= l(:button_jn_expand) %>"
      data-collapse-label="<%= l(:button_jn_collapse) %>"
-     data-filter-placeholder="<%= l(:label_jn_file_filter_placeholder) %>">
+     data-filter-placeholder="<%= l(:label_jn_file_filter_placeholder) %>"
+     data-pdf-pages-one="<%= l(:label_jn_pdf_pages_one) %>"
+     data-pdf-pages-other="<%= l(:label_jn_pdf_pages_other) %>"
+     data-pdf-group-fallback="<%= l(:label_jn_pdf_group_fallback) %>"
+     data-comment-files-one="<%= l(:label_jn_comment_files_one) %>"
+     data-comment-files-other="<%= l(:label_jn_comment_files_other) %>">
 
   <div class="jn-settings-block" data-jn-block="collapse">
     <h4 class="jn-settings-title">
@@ -37,6 +42,16 @@
       </p>
     </div>
 
+    <div class="jn-settings-subblock" data-jn-block="comment-filelist">
+      <p class="jn-settings-field">
+        <label>
+          <input type="checkbox" id="jn-comment-filelist-enabled" <%= 'checked' if prefs[:comment_filelist_enabled] %>>
+          <%= l(:label_jn_comment_filelist_title) %>
+        </label>
+      </p>
+      <p class="jn-settings-hint"><%= l(:text_jn_comment_filelist_hint) %></p>
+    </div>
+
     <div class="jn-preview">
       <p class="jn-preview-label"><%= l(:label_jn_preview) %></p>
       <div class="jn-preview-frame" id="jn-preview-history">
@@ -44,6 +59,28 @@
           <h4 class="journal-header">
             <span class="journal-info"><strong>Max Mustermann</strong> &middot; <%= format_time(Time.now - 2.hours) %></span>
           </h4>
+          <ul class="details">
+            <%
+              example_detail_files = [
+                ['IMG_4821.jpeg', nil],
+                ['IMG_4822.jpeg', nil],
+                ['IMG_4823.jpeg', nil],
+                ['angebot-tech.pdf', nil],
+                ['angebot-tech_a9002_p001.png', 'Seite 1/4 angebot-tech.pdf'],
+                ['angebot-tech_a9002_p002.png', 'Seite 2/4 angebot-tech.pdf'],
+                ['angebot-tech_a9002_p003.png', 'Seite 3/4 angebot-tech.pdf'],
+                ['angebot-tech_a9002_p004.png', 'Seite 4/4 angebot-tech.pdf']
+              ]
+            %>
+            <% example_detail_files.each_with_index do |(name, description), idx| %>
+              <li>
+                <strong>Datei</strong>
+                <a href="/attachments/<%= 9100 + idx %>/<%= name %>"><%= name %></a>
+                <%= "(#{description})" if description %>
+                wurde hinzugefügt
+              </li>
+            <% end %>
+          </ul>
           <div class="journal-content">
             <div id="journal-preview-notes" class="wiki">
               <p><%= l(:text_jn_example_comment_p1) %></p>
@@ -89,23 +126,26 @@
           <table>
             <%
               example_attachments = [
-                ['anforderungen.pdf', '842 KB', 'Anna Beispiel'],
-                ['architektur-diagramm.png', '1,3 MB', 'Max Mustermann'],
-                ['protokoll-kickoff.docx', '58 KB', 'Anna Beispiel'],
-                ['export-logs.zip', '4,1 MB', 'Max Mustermann'],
-                ['screenshot-bug.png', '210 KB', 'Anna Beispiel'],
-                ['testplan.xlsx', '96 KB', 'Max Mustermann'],
-                ['vertrag-entwurf.pdf', '312 KB', 'Anna Beispiel'],
-                ['mockup-v2.fig', '2,0 MB', 'Max Mustermann']
+                ['anforderungen.pdf', '842 KB', 'Anna Beispiel', nil],
+                ['architektur-diagramm.png', '1,3 MB', 'Max Mustermann', nil],
+                ['protokoll-kickoff.docx', '58 KB', 'Anna Beispiel', nil],
+                ['export-logs.zip', '4,1 MB', 'Max Mustermann', nil],
+                ['screenshot-bug.png', '210 KB', 'Anna Beispiel', nil],
+                ['testplan.xlsx', '96 KB', 'Max Mustermann', nil],
+                ['vertrag-entwurf.pdf', '312 KB', 'Anna Beispiel', nil],
+                ['vertrag-entwurf_a9001_p001.png', '180 KB', 'Anna Beispiel', 'Seite 1/3 vertrag-entwurf.pdf'],
+                ['vertrag-entwurf_a9001_p002.png', '175 KB', 'Anna Beispiel', 'Seite 2/3 vertrag-entwurf.pdf'],
+                ['vertrag-entwurf_a9001_p003.png', '190 KB', 'Anna Beispiel', 'Seite 3/3 vertrag-entwurf.pdf'],
+                ['mockup-v2.fig', '2,0 MB', 'Max Mustermann', nil]
               ]
             %>
-            <% example_attachments.each do |name, size, author| %>
+            <% example_attachments.each do |name, size, author, description| %>
               <tr>
                 <td>
-                  <span class="icon icon-attachment"><%= name %></span>
+                  <a href="#" class="icon icon-attachment"><%= name %></a>
                   <span class="size">(<%= size %>)</span>
                 </td>
-                <td></td>
+                <td><%= description %></td>
                 <td><span class="author"><%= author %></span></td>
                 <td></td>
               </tr>

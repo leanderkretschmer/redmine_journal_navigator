@@ -45,3 +45,70 @@
 .attachments.jn-file-navigator-mode table td {
   padding: 6px 8px;
 }
+
+/* PDF-generated page groups, in both the main attachment table and a
+   comment's own "Datei X wurde hinzugefügt" list */
+
+.jn-pdf-group-toggle {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f0f4f8;
+  color: #39597a;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.jn-pdf-group-toggle:hover {
+  background-color: #e3ebf2;
+}
+
+.jn-pdf-group-toggle[aria-expanded="true"] {
+  background-color: #dbe6f0;
+}
+
+tr.jn-pdf-group-row td {
+  padding: 4px 8px;
+  color: #666;
+}
+
+.jn-pdf-group-icon {
+  margin-right: 4px;
+}
+
+tr.jn-pdf-page-row td,
+li.jn-pdf-page-row {
+  background-color: #fafcfe;
+}
+
+li.jn-pdf-group-row {
+  list-style: none;
+  margin-left: 0;
+}
+
+/* per-comment "Datei X wurde hinzugefügt" list collapsing */
+
+li.jn-comment-files-summary {
+  list-style: none;
+  margin-left: 0;
+}
+
+.jn-comment-files-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #555;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+.jn-comment-files-toggle:hover {
+  background: #f0f0f0;
+  border-color: #999;
+}

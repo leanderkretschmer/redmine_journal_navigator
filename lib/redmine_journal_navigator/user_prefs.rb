@@ -10,7 +10,8 @@ module RedmineJournalNavigator
       'jn_collapse_autohide_enabled' => false,
       'jn_collapse_autohide_distance' => 4,
       'jn_filelist_enabled' => false,
-      'jn_filelist_navigator_enabled' => false
+      'jn_filelist_navigator_enabled' => false,
+      'jn_comment_filelist_enabled' => false
     }.freeze
 
     BOUNDS = {

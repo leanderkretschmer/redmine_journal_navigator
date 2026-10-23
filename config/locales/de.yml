@@ -19,6 +19,11 @@ de:
   label_jn_filelist_navigator_title: "Datei-Navigator"
   text_jn_filelist_navigator_hint: "Zeigt die Dateien beim Ausklappen übersichtlicher an und blendet bei vielen Dateien ein Suchfeld zum Filtern ein, statt der normalen Redmine-Liste."
 
+  label_jn_comment_filelist_title: "Dateiliste in Kommentaren einklappen"
+  text_jn_comment_filelist_hint: "Wenn in einem einzelnen Kommentar viele Dateien hinzugefügt wurden (z. B. per E-Mail), wird diese Liste zu einer Zeile zusammengefasst. Aus PDFs erzeugte Seiten-Vorschauen werden dabei zusätzlich gruppiert."
+  label_jn_comment_files_one: "1 Datei hinzugefügt"
+  label_jn_comment_files_other: "%{count} Dateien hinzugefügt"
+
   button_jn_expand: "Ausklappen"
   button_jn_collapse: "Einklappen"
   label_jn_file_filter_placeholder: "Dateien durchsuchen…"
@@ -26,6 +31,10 @@ de:
   label_jn_attachment_summary:
     one: "%{count} Datei · %{size} insgesamt"
     other: "%{count} Dateien · %{size} insgesamt"
+
+  label_jn_pdf_pages_one: "1 generierte Vorschau"
+  label_jn_pdf_pages_other: "%{count} generierte Vorschauen"
+  label_jn_pdf_group_fallback: "PDF-Vorschau"
 
   text_jn_example_comment_p1: "Ich habe den Importer noch einmal gegen die aktuellen Testdaten laufen lassen und dabei ein paar Dinge gefunden, die wir vor dem nächsten Release klären sollten. Insgesamt läuft der Import stabil, aber es gibt Randfälle bei fehlerhaften Datumsformaten."
   text_jn_example_comment_p2: "Bei etwa 3% der Datensätze schlägt die Validierung fehl, weil das Datumsfeld leer ist statt eines gültigen Werts. Aktuell bricht der komplette Batch dann ab, anstatt nur den einzelnen Datensatz zu überspringen und den Rest weiter zu verarbeiten."

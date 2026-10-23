@@ -71,11 +71,17 @@ module RedmineJournalNavigator
         collapseAutohideDistance: prefs[:collapse_autohide_distance],
         filelistEnabled: prefs[:filelist_enabled],
         filelistNavigatorEnabled: prefs[:filelist_navigator_enabled],
+        commentFilelistEnabled: prefs[:comment_filelist_enabled],
         attachmentSummary: attachment_summary_for(issue),
         i18n: {
           expand: l(:button_jn_expand),
           collapse: l(:button_jn_collapse),
-          filterPlaceholder: l(:label_jn_file_filter_placeholder)
+          filterPlaceholder: l(:label_jn_file_filter_placeholder),
+          pdfPagesOne: l(:label_jn_pdf_pages_one),
+          pdfPagesOther: l(:label_jn_pdf_pages_other),
+          pdfGroupFallback: l(:label_jn_pdf_group_fallback),
+          commentFilesOne: l(:label_jn_comment_files_one),
+          commentFilesOther: l(:label_jn_comment_files_other)
         }
       }
 

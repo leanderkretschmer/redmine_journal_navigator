@@ -19,6 +19,11 @@ en:
   label_jn_filelist_navigator_title: "File navigator"
   text_jn_filelist_navigator_hint: "Shows the files more clearly when expanded and adds a search box to filter them when there are many, instead of the plain Redmine list."
 
+  label_jn_comment_filelist_title: "Collapse file list in comments"
+  text_jn_comment_filelist_hint: "When a single comment has many files added to it (e.g. via email), that list is collapsed into one line. Page previews generated from PDFs are additionally grouped together."
+  label_jn_comment_files_one: "1 file added"
+  label_jn_comment_files_other: "%{count} files added"
+
   button_jn_expand: "Expand"
   button_jn_collapse: "Collapse"
   label_jn_file_filter_placeholder: "Search files…"
@@ -26,6 +31,10 @@ en:
   label_jn_attachment_summary:
     one: "%{count} file · %{size} total"
     other: "%{count} files · %{size} total"
+
+  label_jn_pdf_pages_one: "1 generated preview"
+  label_jn_pdf_pages_other: "%{count} generated previews"
+  label_jn_pdf_group_fallback: "PDF preview"
 
   text_jn_example_comment_p1: "I ran the importer against the current test data again and found a few things we should clarify before the next release. Overall the import is stable, but there are edge cases with malformed date values."
   text_jn_example_comment_p2: "About 3% of the records fail validation because the date field is empty instead of a valid value. Right now the whole batch aborts instead of just skipping the single record and continuing with the rest."

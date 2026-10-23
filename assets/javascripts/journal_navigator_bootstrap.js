@@ -22,7 +22,15 @@
     window.RedmineAttachmentCollapse.apply(document, {
       enabled: config.filelistEnabled,
       navigatorEnabled: config.filelistNavigatorEnabled,
-      filterPlaceholder: config.i18n.filterPlaceholder
+      commentFilelistEnabled: config.commentFilelistEnabled,
+      filterPlaceholder: config.i18n.filterPlaceholder,
+      i18n: {
+        pdfPagesOne: config.i18n.pdfPagesOne,
+        pdfPagesOther: config.i18n.pdfPagesOther,
+        pdfGroupFallback: config.i18n.pdfGroupFallback,
+        commentFilesOne: config.i18n.commentFilesOne,
+        commentFilesOther: config.i18n.commentFilesOther
+      }
     });
   }
 })();
