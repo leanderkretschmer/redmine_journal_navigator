@@ -151,8 +151,11 @@
       rootEl._jnObserver = null;
     }
 
+    // Match the note content div by its id pattern (journal-<id>-notes), not the
+    // "journal-note" class: some Redmine builds/themes (confirmed on production)
+    // render this div as plain class="wiki" without that extra class.
     var allNotes = Array.prototype.slice.call(
-      rootEl.querySelectorAll('.journal.has-notes .wiki.journal-note')
+      rootEl.querySelectorAll('.journal.has-notes [id^="journal-"][id$="-notes"].wiki')
     );
 
     allNotes.forEach(function (note) { teardown(note); });

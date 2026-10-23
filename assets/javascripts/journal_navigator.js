@@ -47,7 +47,7 @@
     updateUI();
 
     if (window.RedmineJournalCollapse) {
-      window.RedmineJournalCollapse.expandIfCollapsed(notes[current].querySelector('.wiki.journal-note'));
+      window.RedmineJournalCollapse.expandIfCollapsed(notes[current].querySelector('[id^="journal-"][id$="-notes"]'));
     }
 
     suppressObserver = true;
